@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Les utilisateurs";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@foreach (User element in Model)
+{
+    @if (element.grants == "ADMIN") { element.grants = "Administrateur"; }
+    else if (element.grants == "USER") { element.grants = "Utilisateur"; }
+
+    <div class="card my-3">
+        <div class="card-header">Utilisateur @element.id</div>
+        <div class="card-body">
+            <h5 class="card-title">@element.firstName @element.lastName</h5>
+            <p class="card-text">@element.email</p>
+            <p class="card-text"> Rôle: @element.grants.ToLower()</p>
+            <a class="btn btn-primary" asp-controller="User" asp-action="Detail" asp-route-id="@element.id">Detail</a>
+        </div>
+    </div>
+}
+

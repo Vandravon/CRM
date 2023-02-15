@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Les clients";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@foreach (Client element in Model)
+{
+    @if (element.state == "ACTIVE") { element.state = "Actif"; }
+    else if (element.state == "INACTIVE") { element.state = "Inactif"; }
+
+    <div class="card my-3">
+        <div class="card-header">Client @element.id</div>
+        <div class="card-body">
+            <h5 class="card-title">@element.name</h5>
+            <p class="card-text">Etat: @element.state</p>
+            <p class="card-text">TVA: @element.tva</p>
+            <p class="card-text">Chiffre d'affaire HT: @element.totalCaHt</p>
+            <p class="card-text">Commentaire: @element.comment</p>
+            <a href="#" class="btn btn-primary">Detail</a>
+        </div>
+    </div>
+}
