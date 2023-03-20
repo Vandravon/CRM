@@ -19,6 +19,7 @@ public class ClientsController : ControllerBase
 
     }
 
+    [Authorize]
     [HttpGet]
     public DbSet<Client> Get()
     {

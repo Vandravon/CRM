@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xoWVZHOhcb82S+PfsQA9dWS0vR9dMp2WK56ht2AuUVQVRoq3R8dSBp4V9ISVuQe5RCyZSo9i45vYRGOIBsMlXw==",
+  "dgSpecHash": "epLQJ1xyjGspKXnKoTU84ivVlvCStBRWXNQh8I/irL3K1y+jn8WGWUWRis68ONM0eG3eOHSIPs4bRR0SIi8yXQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nodi\\Desktop\\M2i\\CRM-API\\CRM-API\\CRM-API.csproj",
+  "projectFilePath": "C:\\Users\\Nodi\\Desktop\\M2i\\CRM\\CRM-API\\CRM-API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nodi\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",
     "C:\\Users\\Nodi\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",
