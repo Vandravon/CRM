@@ -31,7 +31,17 @@ public class ClientsController : ControllerBase
     [Route("{id}")]
     public Client Get(int id)
     {
-        return context.Clients.Single(c => c.id == id);
+        Client? returnClient;
+        try
+        {
+            returnClient =  context.Clients.Single(c => c.id == id);
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Client non trouvé!");
+            returnClient = context.Clients.Single(c => c.id == 1);
+        }
+        return returnClient;
     }
 
     [Authorize]

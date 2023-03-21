@@ -28,14 +28,24 @@ public class UsersController : ControllerBase
     [Authorize]
     [HttpGet]
     [Route("{id}")]
-    public User Get(int id)
+    public User Get(int id) // Renvoie l'utilisateur qui possède l'Id indiquée
     {
-        return context.Users.Single(u => u.id == id);
+        User? returnUser;
+        try
+        {
+            returnUser = context.Users.Single(u => u.id == id);
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("User non trouvé!");
+            returnUser = context.Users.Single(u => u.id == 1);
+        }
+        return returnUser;
     }
 
     [Authorize]
     [HttpPost]
-    public string Post([FromBody] User newUser)
+    public string Post([FromBody] User newUser) // Créé un nouvel utilisateur
     {
         using (var transaction = context.Database.BeginTransaction())
         try
@@ -56,7 +66,7 @@ public class UsersController : ControllerBase
     [Authorize]
     [HttpPut]
     [Route("edit/{id}")]
-    public string Put(int id, User userChanged)
+    public string Put(int id, User userChanged) // Modifie un utilisateur
     {
         using (var transaction = context.Database.BeginTransaction())
         try
@@ -81,7 +91,7 @@ public class UsersController : ControllerBase
     [Authorize]
     [HttpDelete]
     [Route("{id}")]
-    public string Delete(int id)
+    public string Delete(int id) // Supprime l'utilisateur qui à l'Id indiquée
     {
         using (var transaction = context.Database.BeginTransaction())
         try

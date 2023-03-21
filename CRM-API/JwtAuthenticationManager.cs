@@ -10,17 +10,14 @@ namespace CRM_API
 {
     public class JwtAuthenticationManager
     {
-        //key declaration
         private readonly string key;
         public CrmContext context = new();
 
         public JwtAuthenticationManager(string key)
         {
             this.key = key;
-            Console.WriteLine("Manager lancé!");
         }
 
-        /*public string Authenticate(string username, string password)*/
         public string Authenticate(string email, string password)
         {
             using (var transaction = context.Database.BeginTransaction())
@@ -37,7 +34,7 @@ namespace CRM_API
                         {
                     new Claim(ClaimTypes.Email, email)
                         }),
-                        //set duration of token here
+                        // Durée du token
                         Expires = DateTime.UtcNow.AddHours(1),
                         SigningCredentials = new SigningCredentials(
                             new SymmetricSecurityKey(tokenKey),

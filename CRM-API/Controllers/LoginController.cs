@@ -28,7 +28,7 @@ namespace CRM_API.Controllers
                 return Unauthorized();
             }
             User userCheck = context.Users.Single(u => u.email == user.email);
-            userCheck.password = token.ToString();
+            userCheck.password = token.ToString(); // Modifie le userCheck de l'User dans la table Users pour lui mettre la valeur du token
             context.SaveChanges();
             return Ok(token);
         }
